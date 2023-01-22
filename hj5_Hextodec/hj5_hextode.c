@@ -5,27 +5,15 @@
 
 int hextodec(char *ch_num, int ch_len)
 {
-    ;
-}
-
-int main(void)
-{
-    char ch_num[4];
-    
-    memset(ch_num, 0, sizeof(ch_num));
-
-    gets(ch_num);
-
     if(memcmp(ch_num, "0x", 2) != 0 && memcmp(ch_num, "0X", 2) != 0) {
         printf("input error");
         return 0;
     }
-    
 
     int res = 0;
-    int ch_len = strlen(ch_num);
+    //int ch_len = strlen(ch_num);
 
-    for (int i = ch_len-1; i>1; i--)
+    for (int i = ch_len - 1; i>1; i--)
     { 
         if (ch_num[i] >= 'A' && ch_num[i] <= 'F')
         {
@@ -45,7 +33,18 @@ int main(void)
             return 0;  
         }
     }
+    
+    return res;
+}
 
+int main(void)
+{
+    char ch_num[4] = {0};
+    memset(ch_num, 0, sizeof(ch_num));
+
+    gets(ch_num);
+    int res;
+    res = hextodec(ch_num,strlen(ch_num));
     printf("res = %d\n",res);
     return 0;
 }
