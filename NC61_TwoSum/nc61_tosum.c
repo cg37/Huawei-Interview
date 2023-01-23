@@ -16,9 +16,13 @@ int* twoSum(int* numbers, int numbersLen, int target, int* returnSize ) {
     int *ans;
     ans = (int *)malloc(2*sizeof(int));
 
-    for(int i=0; i<numbersLen; i++) {
-        for(int j=0; j<numbersLen; j++) {
+    for(int i=0; i < numbersLen; i++) {
+        if (numbers[i] > target)
+            continue;
+        for(int j = i + 1; j<numbersLen; j++) {
             if(numbers[i] + numbers[j] == target) {
+                i = i + 1;
+                j = j + 1;
                 ans[0] = i;
                 ans[1] = j;
                 *returnSize = 2;
@@ -31,9 +35,9 @@ int* twoSum(int* numbers, int numbersLen, int target, int* returnSize ) {
 }
 
 int main() {
-    int nums[] = {11,2,14,7};
+    int nums[] = {3,2,4};
 
-    int target = 9;
+    int target = 6;
     int * returnSize = (int*) malloc (sizeof(int));
     int * res;
     res = twoSum(nums, 4, target, returnSize);
@@ -42,3 +46,5 @@ int main() {
     }
     return 0;
 }
+
+
