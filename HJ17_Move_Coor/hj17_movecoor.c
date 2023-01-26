@@ -79,72 +79,64 @@
 //         return true;
 //     }
 // }
-
+ 
 //以下是Senky的代码：
 //首先将字符串的;号前的指令读取，每接受一个指令就移动一次坐标
 //依题意得只有字符串长度为两位或三位的指令才有效，此时不移动或者移动0步
 //char '1'的ACII是49，和int 1间隔48，所以char -48是对应的int真值
-int point_x = 0;
-int point_y = 0;
+int x = 0;
+int y = 0;
 
-void move(char direction, int num) {
-    switch (direction) {
-        case'W':
-            point_y += num;
-            break;
-
+void move(char dir, int dis) {
+    switch (dir) {
         case'A':
-                point_x -= num;
+            x = x - dis;
             break;
-
-        case'S':
-            point_y -= num;
-            break;
-
         case'D':
-                point_x += num;
+            x = x + dis;
             break;
-
+        case'S':
+            y = y - dis;
+            break;
+        case'W':
+            y = y + dis;
+            break;      
         default:
             break;
     }
 }
 
-void start() {
-    char direction[10];//方向
-    int len = 0; //分号前面字符串的长度
-    while (~scanf("%[^;]", direction)) {
-        int num = 0;
-        getchar();//处理分号
-        len = strlen(direction);//获取长度，2,3才是合法值
+void moveCoor() {
+    char tmp[10];//direction 
+    int len = 0; //分割字符串长度
+    while (~scanf("%[^;]", tmp)) {
+        int dis = 0;
+        getchar();
+        len = strlen(tmp);//获取长度，2,3才是合法值
         switch (len) {
             case 2:
-                if (direction[1] >= '0' && direction[1] <= '9') {
-                    num = (int)direction[1] - 48;
+                if (tmp[1] >= '0' && tmp[1] <= '9') {
+                    dis = tmp[1] - '0';
                 }
                 break;
 
             case 3:
-                if (direction[1] >= '0' &&
-                        direction[1] <= '9') {//第二个字符必须是数字
-                    if ( direction[2] >= '0' &&
-                            direction[2] <= '9') {//第三个字符也必须是数字
-                        num = ((int)direction[1] - 48) * 10 + (int)direction[2] - 48;
+                if (tmp[1] >= '0' &&
+                        tmp[1] <= '9') {//第二个字符必须是数字
+                    if ( tmp[2] >= '0' &&
+                           tmp[2] <= '9') {//第三个字符也必须是数字
+                        dis = (tmp[1] - '0') * 10 + (tmp[2] - '0');
                     }
                 }
                 break;
-
             default:
                 break;
         }
-
-        move(direction[0], num);
-        // printf("当前方向：%s 当前num:%d ",direction[0], num);
-        // printf("move%c后：%d,%d\n", direction[0], point_x, point_y);
+        move(tmp[0], dis);
     }
-    printf("%d,%d\n", point_x, point_y);
+    printf("%d,%d\n", x, y);
 }
 int main() {
-    start();
-    return 0;//编辑于2022/10/12
+    moveCoor();
+    return 0;
 }
