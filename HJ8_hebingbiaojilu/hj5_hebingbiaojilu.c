@@ -5,6 +5,7 @@ struct data {
     int index;
     int value;
 } arr[500];
+
 int cmparr(const void* a, const void* b) {
     return ((*(struct data*)a).index-(*(struct data*)b).index);
 }
