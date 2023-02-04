@@ -5,7 +5,8 @@
         "stdbool.h": "c",
         "stdlib.h": "c",
         "vector": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iostream": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
