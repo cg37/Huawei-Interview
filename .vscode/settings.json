@@ -6,7 +6,13 @@
         "stdlib.h": "c",
         "vector": "cpp",
         "ostream": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "string": "cpp",
+        "xstring": "cpp",
+        "iterator": "c",
+        "list": "c",
+        "memory": "c",
+        "utility": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

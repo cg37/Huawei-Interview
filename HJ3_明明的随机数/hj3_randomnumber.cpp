@@ -1,32 +1,36 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <iostream>
 #include <vector>
 using namespace std;
-
-int randomnumber(int n) {
-    vector<int> num_hash(1000,0);
-    int num;
-    while(n--) {
-        cin>>num;
-        num_hash[num] = 1;
-    }
-    for(int i=0;i<1001;i++) {
+class Solution{
+public:
+    int random_num(int n) {
+        vector<int> num_hash(1000,0);
+        int num;
+        while(n--) {
+            cin>>num;
+            num_hash[num] = 1;
+        }
+        for(int i=0;i<1001;i++) {  //!!!!!1001
             if(num_hash[i] == 1){
                 cout<<i<<endl;
             }
         }
     return 0;
-}
+    }
+};
 int main() {
 
     int n;//N个随机数
     while(cin>>n){
-        randomnumber(n);
+        Solution().random_num(n);
     }   
     return 0;
- /**   *****************************      */
+}
+ /************* C 写法 *******************/
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
+//int main() {
     //c写法
     // int arr[1001]; 
     // int arr_len;
@@ -46,4 +50,4 @@ int main() {
     //     }
     // }
     // return 0;
-}
+//}
