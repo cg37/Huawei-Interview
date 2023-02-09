@@ -1,3 +1,30 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+class Solution{
+public:
+    int sortstr(int n) {
+        vector<string> vec_str;
+        while(n--) {
+            string str;
+            cin>>str;
+            vec_str.push_back(str);
+        }
+        sort(vec_str.begin(),vec_str.end());
+        for(string &s : vec_str) {
+            cou<<s<<endl;
+        }
+    return 0;
+    }
+};
+int main() {
+    int num;
+    std::cin>>num;
+    Solution().sortstr(num);
+    return 0;
+}
+/******************C yuyan********************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,9 +36,7 @@ int main() {
         for (int i=0; i<num; i++) {
             scanf("%s", data[i]);
         }  
-        // for (int i = 0; i<num; i++) {
-        //     printf("%c\n",data[i][0]);
-        // }
+ 
         char temp[101];
         for (int i = 0; i<num-1; i++) {
             for (int j = i+1; j<num; j++) {

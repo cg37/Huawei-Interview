@@ -1,3 +1,24 @@
+#include <iostream>
+using namespace std;
+class Solution {
+public:
+    int reversestr(string s) {
+        for(int i = s.size()-1; i >= 0; i--) {
+        cout>>s[i]<<endl;
+        }
+    }
+    return 0;
+}
+
+int main() {
+    string s;
+    getline(cin,s) {
+        Solution().reversestr(s);
+    }
+    return 0;
+}
+
+//*************************   C 写法******************************///
 #include <stdio.h>
 #include <string.h>
 
